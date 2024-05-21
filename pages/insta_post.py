@@ -12,7 +12,10 @@ generation_config = {
 }
 
 # Configure your API key
-genai.configure(api_key="YOUR_API_KEY")
+api_key = st.secrets["google"]["api_key"]
+
+# Configurando a chave de API para genai
+genai.configure(api_key=api_key)
 
 model = genai.GenerativeModel(model_name="gemini-1.5-flash-latest",
                               generation_config=generation_config,
