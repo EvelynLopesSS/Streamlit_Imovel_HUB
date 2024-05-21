@@ -1,5 +1,4 @@
 import streamlit as st
-from streamlit_option_menu import option_menu
 
 #st.sidebar.image("https://media-blog.genialinvestimentos.com.br/wp-content/uploads/2021/01/11141457/como-investir-em-fundos-imobiliarios.jpg", use_column_width=True)
 
