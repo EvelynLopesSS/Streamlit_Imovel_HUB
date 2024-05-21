@@ -1,43 +1,23 @@
 import streamlit as st
+from streamlit_option_menu import option_menu
 
-st.sidebar.image("https://media-blog.genialinvestimentos.com.br/wp-content/uploads/2021/01/11141457/como-investir-em-fundos-imobiliarios.jpg", use_column_width=True)
+#st.sidebar.image("https://media-blog.genialinvestimentos.com.br/wp-content/uploads/2021/01/11141457/como-investir-em-fundos-imobiliarios.jpg", use_column_width=True)
 
 st.sidebar.title('Navegação')
-st.image("https://imageio.forbes.com/specials-images/imageserve/5f0c98c0147a4f0006753d4b/Houses-of-different-size-with-different-value-on-stacks-of-coins--Concept-of-/960x0.jpg?height=355&width=711&fit=bounds", use_column_width=True)
+st.image("https://i2.wp.com/pmcaonline.org/wp-content/uploads/2021/05/Real-Estate-Industry.jpg", use_column_width=True)
     
-st.sidebar.page_link("pages/predict_page.py", label="Previsão de Preços", icon="🏠")
+st.sidebar.page_link("pages/predict_page.py", label="Previsão de Preços", icon="💲")
 st.sidebar.page_link("pages/chatbot.py", label="Chatbot", icon="💬")
+st.sidebar.page_link("pages/insta_post.py", label="Criar Post Instagram", icon="📸")
 
 st.write("""
 # 🏠 Bem-vindo ao Imovél HUB""")  
 st.divider()
-btn_login_clicked = False
-btn_register_clicked = False
-col1, col2 = st.columns(2)
-
-with col1:
-    if st.button("Entrar"):
-        btn_login_clicked = True
-
-with col2:
-    if st.button("Cadastrar"):
-        btn_register_clicked = True
-
-if btn_login_clicked:
-    username = st.text_input("Username")
-    password = st.text_input("Password", type="password")
-    btn_confirm_login = st.button("Confirmar")
-
-if btn_register_clicked:
-    new_username = st.text_input("Novo Username")
-    new_password = st.text_input("Nova Password", type="password")
-    btn_confirm_register = st.button("Confirmar")
-
-st.divider()  
+ 
 st.write("""
 Este é um aplicativo desenvolvido com Streamlit para ajudar os Corretores de imóveis.
          
-Por aqui é possível fazer  uma previsão de preços de imóveis, além de oferecer o chatbot Nelson para responder perguntas relacionadas ao mercado imobiliário.
+Por aqui é possível fazer  uma previsão de preços de imóveis, criação de post de anúncio de imóvel em segundos, além de oferecer o chatbot Nelson para responder perguntas relacionadas ao mercado imobiliário.
 
 **Recursos do Chatbot Nelson:**
 
@@ -52,6 +32,7 @@ Use a barra lateral para navegar entre as diferentes funcionalidades:
 
 - **Previsão de Preços**: Faça uma previsão do preço de um imóvel com base em suas características.
 - **Chatbot Nelson**: Interaja com Nelson, o assistente virtual, para lhe auxiliar no que for preciso.
+- **Criar Post Instagram"**: Criação de post de anúncio de imóvel a partir de imagem, usando o Gemini.
 
 Divirta-se explorando as funcionalidades do aplicativo! 🎉
 """)
