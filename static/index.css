@@ -1,0 +1,17 @@
+
+body {
+    background-image: url("https://static.seekingalpha.com/cdn/s3/uploads/getty_images/1489632039/image_1489632039.jpg?io=getty-c-w750");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+
+}
+.form-card {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 50px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+   max-height: 80vh; 
+    overflow-y: auto; 
+}
