@@ -31,38 +31,31 @@ def main():
     st.write("""
     Este aplicativo permite prever o preço de um imóvel com base em diversas características. 
              
-    Insira os detalhes do imóvel no formulário abaixo para obter uma estimativa de preço.
+    Insira os detalhes do imóvel no formulário na lateral para obter uma estimativa de preço.
     """)
 
-    # Sidebar form for input
-    with st.form(key='predict_form'):
-        # Create columns with custom spacing
-        col1, col2, col3 = st.columns(3)
+    with st.sidebar.form(key='predict_form'):
+        Cidade_encoded = st.selectbox('Cidade', options=list(cidade_mapping.keys()), format_func=lambda x: x)
+        Bairro_encoded = st.selectbox('Bairro', options=list(bairro_mapping.keys()), format_func=lambda x: x)
+        Tipo_Imovel_encoded = st.selectbox('Tipo de Imóvel', options=list(tipo_imovel_mapping.keys()), format_func=lambda x: x)
+        Andar_encoded = st.selectbox('Andar', options=list(andar_mapping.keys()), format_func=lambda x: x)
+        Status_encoded = st.selectbox('Status', options=list(status_mapping.keys()), format_func=lambda x: x)
+        WC = st.number_input('WC', min_value=0, max_value=10, value=1)
+        DCE = st.number_input('DCE', min_value=0, max_value=10, value=1)
+        
+        Area = st.number_input('Área (m²)', min_value=50, max_value=50000, value=100)
+        Valor_M = st.number_input('Valor do m²', min_value=0, max_value=100000, value=2000)
+        Beira_Mar = st.selectbox('Beira Mar', [0, 1], format_func=lambda x: 'Sim' if x == 1 else 'Não')
+        Closet = st.selectbox('Closet', [0, 1], format_func=lambda x: 'Sim' if x == 1 else 'Não')
+        Qtde_Quartos = st.number_input('Quartos', min_value=0, max_value=100, value=1)
+        Qtde_Suites = st.number_input('Suítes', min_value=0, max_value=10, value=1)
 
-        with col1:
-            Cidade_encoded = st.selectbox('Cidade', options=list(cidade_mapping.keys()), format_func=lambda x: x)
-            Bairro_encoded = st.selectbox('Bairro', options=list(bairro_mapping.keys()), format_func=lambda x: x)
-            Tipo_Imovel_encoded = st.selectbox('Tipo de Imóvel', options=list(tipo_imovel_mapping.keys()), format_func=lambda x: x)
-            Andar_encoded = st.selectbox('Andar', options=list(andar_mapping.keys()), format_func=lambda x: x)
-            Status_encoded = st.selectbox('Status', options=list(status_mapping.keys()), format_func=lambda x: x)
-            WC = st.number_input('WC', min_value=0, max_value=10, value=1)
-            DCE = st.number_input('DCE', min_value=0, max_value=10, value=1)
-        with col2:
-            Area = st.number_input('Área (m²)', min_value=50, max_value=50000, value=100)
-            Valor_M = st.number_input('Valor do m²', min_value=0, max_value=100000, value=2000)
-            Beira_Mar = st.selectbox('Beira Mar', [0, 1], format_func=lambda x: 'Sim' if x == 1 else 'Não')
-            Closet = st.selectbox('Closet', [0, 1], format_func=lambda x: 'Sim' if x == 1 else 'Não')
-            Qtde_Quartos = st.number_input('Quartos', min_value=0, max_value=100, value=1)
-            Qtde_Suites = st.number_input('Suítes', min_value=0, max_value=10, value=1)
-
-
-        with col3:
-            Vaga_Garagem = st.number_input('Vaga de Garagem', min_value=0, max_value=10, value=1)
-            Elevador = st.selectbox('Elevador', [0, 1], format_func=lambda x: 'Sim' if x == 1 else 'Não')
-            Portaria_24h = st.selectbox('Portaria 24h', [0, 1], format_func=lambda x: 'Sim' if x == 1 else 'Não')
-            Gerador = st.selectbox('Gerador', [0, 1], format_func=lambda x: 'Sim' if x == 1 else 'Não')
-            Central_Gas = st.selectbox('Central de Gás', [0, 1], format_func=lambda x: 'Sim' if x == 1 else 'Não')
-            Bicicletario = st.selectbox('Bicicletário', [0, 1], format_func=lambda x: 'Sim' if x == 1 else 'Não')
+        Vaga_Garagem = st.number_input('Vaga de Garagem', min_value=0, max_value=10, value=1)
+        Elevador = st.selectbox('Elevador', [0, 1], format_func=lambda x: 'Sim' if x == 1 else 'Não')
+        Portaria_24h = st.selectbox('Portaria 24h', [0, 1], format_func=lambda x: 'Sim' if x == 1 else 'Não')
+        Gerador = st.selectbox('Gerador', [0, 1], format_func=lambda x: 'Sim' if x == 1 else 'Não')
+        Central_Gas = st.selectbox('Central de Gás', [0, 1], format_func=lambda x: 'Sim' if x == 1 else 'Não')
+        Bicicletario = st.selectbox('Bicicletário', [0, 1], format_func=lambda x: 'Sim' if x == 1 else 'Não')
         
         submit_button = st.form_submit_button(label='Calcular Preço')
 
